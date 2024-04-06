@@ -6,9 +6,9 @@ from Players.LeagueLeaders.OfficialLeaders.scraping import seasons
 
 official_leaders_bp = Blueprint('official_leaders', __name__)
 
-@official_leaders_bp.route('/leagueLeaders/players/Season=<string:season>&SeasonType=<string:season_type>&StatCategory=<string:stat_category>', methods=['GET'])
-def search_leagueLeaders(season, season_type, stat_category):
-    return jsonify(retornaJSON(season, season_type, stat_category))
+@official_leaders_bp.route('/leagueLeaders/players/Season=<string:season>&SeasonType=<string:season_type>&StatCategory=<string:stat_category>&PerMode=<string:per_mode>', methods=['GET'])
+def search_leagueLeaders(season, season_type, stat_category, per_mode):
+    return jsonify(retornaJSON(season, season_type, stat_category, per_mode))
 
 @official_leaders_bp.route('/leagueLeaders/player/Season=<string:season>&SeasonType=<string:season_type>&StatCategory=<string:stat_category>&PerMode=<string:per_mode>&Rank=<int:rank>',  methods=['GET'] )
 def search_leagueLeaders_by_rank(season, season_type, stat_category, per_mode, rank):
