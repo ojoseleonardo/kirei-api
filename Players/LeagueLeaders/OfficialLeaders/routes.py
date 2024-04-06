@@ -34,10 +34,10 @@ def search_leagueLeaders_by_name(season, season_type, stat_category, per_mode, n
     else:
         return jsonify({'message': 'No player found with name {}'.format(name)})
     
-@official_leaders_bp.route('/leagueLeaders/player/Season=<string:season>&SeasonType=<string:season_type>&StatCategory=<string:stat_category>&Team=<string:team>',  methods=['GET'] )
-def search_leagueLeaders_by_team(season, season_type, stat_category, team):
+@official_leaders_bp.route('/leagueLeaders/players/Season=<string:season>&SeasonType=<string:season_type>&StatCategory=<string:stat_category>&PerMode=<string:per_mode>&Team=<string:team>',  methods=['GET'] )
+def search_leagueLeaders_by_team(season, season_type, stat_category,per_mode, team):
     matching_players = []
-    for leagueLeader in retornaJSON(season, season_type, stat_category):
+    for leagueLeader in retornaJSON(season, season_type, stat_category, per_mode):
             if leagueLeader[4] == team:
                 matching_players.append(leagueLeader)
                           
