@@ -12,9 +12,9 @@ seasons = ["2023-24", "2022-23", "2021-22", "2020-21", "2019-20", "2018-19", "20
            "1963-64", "1962-63", "1961-62", "1960-61", "1959-60", "1958-59", "1957-58", "1956-57", "1955-56", "1954-55", 
            "1953-54", "1952-53", "1951-52", "1950-51", "1949-50", "1948-49", "1947-48", "1946-47"]
 
-def retornaJSON(season, season_type, stat_category):
+def retornaJSON(season, season_type, stat_category, per_mode):
     pd.set_option('display.max_columns', None)
-    url = f'https://stats.nba.com/stats/leagueLeaders?LeagueID=00&PerMode=PerGame&Scope=S&Season={season}&SeasonType={season_type}&StatCategory={stat_category}'
+    url = f'https://stats.nba.com/stats/leagueLeaders?LeagueID=00&PerMode={per_mode}&Scope=S&Season={season}&SeasonType={season_type}&StatCategory={stat_category}'
     OfficialLeagueLeadersJSON = requests.get(url=url).json()
 
     OfficialLeagueLeadersJSON = OfficialLeagueLeadersJSON['resultSet']['rowSet']

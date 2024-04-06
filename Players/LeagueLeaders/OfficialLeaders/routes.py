@@ -10,10 +10,10 @@ official_leaders_bp = Blueprint('official_leaders', __name__)
 def search_leagueLeaders(season, season_type, stat_category):
     return jsonify(retornaJSON(season, season_type, stat_category))
 
-@official_leaders_bp.route('/leagueLeaders/player/Season=<string:season>&SeasonType=<string:season_type>&StatCategory=<string:stat_category>&Rank=<int:rank>',  methods=['GET'] )
-def search_leagueLeaders_by_rank(season, season_type, stat_category, rank):
+@official_leaders_bp.route('/leagueLeaders/player/Season=<string:season>&SeasonType=<string:season_type>&StatCategory=<string:stat_category>&PerMode=<string:per_mode>&Rank=<int:rank>',  methods=['GET'] )
+def search_leagueLeaders_by_rank(season, season_type, stat_category, per_mode, rank):
     matching_players = []
-    for leagueLeader in retornaJSON(season, season_type, stat_category):
+    for leagueLeader in retornaJSON(season, season_type, stat_category, per_mode):
             if leagueLeader[1] == rank:
                 matching_players.append(leagueLeader)
                           
