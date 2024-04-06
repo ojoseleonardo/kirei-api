@@ -20,3 +20,12 @@ def retornaJSON(season, season_type, stat_category, per_mode):
     OfficialLeagueLeadersJSON = OfficialLeagueLeadersJSON['resultSet']['rowSet']
     
     return OfficialLeagueLeadersJSON
+
+def retornaJSONRookies(season, season_type, stat_category, per_mode):
+    pd.set_option('display.max_columns', None)
+    url = f'https://stats.nba.com/stats/leagueLeaders?LeagueID=00&PerMode={per_mode}&Scope=Rookies&Season={season}&SeasonType={season_type}&StatCategory={stat_category}'
+    OfficialLeagueLeadersJSON = requests.get(url=url).json()
+
+    OfficialLeagueLeadersJSON = OfficialLeagueLeadersJSON['resultSet']['rowSet']
+    
+    return OfficialLeagueLeadersJSON
